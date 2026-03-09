@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="bleg"/>
+        <attribute name="authors" value="Trinity"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-03-08 08:06:10 PM"/>
+        <attribute name="created" value="VHJpbml0eTtSSVZJQTsyMDI2LTAzLTA4OzA2OjUyOjI0IFBNOzI0MTg="/>
+        <attribute name="edited" value="VHJpbml0eTtSSVZJQTsyMDI2LTAzLTA4OzA4OjA2OjEwIFBNOzE7MjUyMg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="x, y, maxY, maxX" type="Integer" array="False" size=""/>
+            <declare name="ch" type="String" array="False" size=""/>
+            <assign variable="maxY" expression="0"/>
+            <assign variable="maxX" expression="0"/>
+            <read variable="x, ch, y"/>
+            <if expression="x &gt; maxX">
+                <then>
+                    <assign variable="maxX" expression="x"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="y &gt; maxY">
+                <then>
+                    <assign variable="maxY" expression="y"/>
+                </then>
+                <else/>
+            </if>
+            <declare name="grid" type="String" array="True" size="maxY + 1][maxX + 1"/>
+            <for variable="row" start="0" end="maxY" direction="inc" step="1">
+                <for variable="col" start="0" end="maxX" direction="inc" step="1">
+                    <assign variable="grid[row][col]" expression="&quot; &quot;"/>
+                </for>
+            </for>
+            <read variable="x, ch, y"/>
+            <assign variable="grid[y][x]" expression="ch"/>
+            <for variable="row" start="0" end="maxY" direction="inc" step="1">
+                <for variable="col" start="0" end="maxX" direction="inc" step="1">
+                    <output expression="grid[row][col]" newline="True"/>
+                </for>
+                <output expression="newline" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
